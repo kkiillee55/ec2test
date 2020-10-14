@@ -18,19 +18,9 @@ dbserver=os.environ['dbserver']
 print('mysql+pymysql://{}:{}@{}'.format(username,password,dbserver))
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://{}:{}@{}'.format(username,password,dbserver)
-#app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://ambrose:12345678@ec2testdb.cdl6fshxaa2x.us-east-2.rds.amazonaws.com/ec2schema'
+
 db=SQLAlchemy(app)
-# c_info={
-#     'host':'ec2testdb.cdl6fshxaa2x.us-east-2.rds.amazonaws.com',
-#     'user':'ambrose',
-#     'password':'12345678',
-#     'cursorclass':pymysql.cursors.DictCursor,
-# }
-# conn=pymysql.connect(**c_info)
-# cur=conn.cursor()
-# res=cur.execute('show databases;')
-# res=cur.fetchall()
-# print('database: ',json.dumps(res,indent=4,default=str))
+
 
 @app.route('/')
 def home():
